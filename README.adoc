@@ -7,7 +7,7 @@
 :relcont: https://github.com/jecastrom/data_3.07_activities.git
 //:fn-xxx: Add the explanation foot note here bla bla
 :toc:
-:toc-title: Lab description: In this lab, you will....
+:toc-title: In this lab, you will be using the Sakila database of movie rentals.
 :toc-placement!:
 :toclevels: 5
 ifdef::env-github[]
@@ -62,6 +62,13 @@ toc::[]
 
 {description}
 
+
+== Instructions
+
+=== 1. Get number of monthly active customers.
+=== Active users in the previous month.
+=== Percentage change in the number of active customers.
+=== Retained customers every month.
 
 ====
 ''''
