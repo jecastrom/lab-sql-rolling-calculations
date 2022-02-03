@@ -66,7 +66,47 @@ toc::[]
 == Instructions
 
 === Get number of monthly active customers.
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    date_format(rental_date, '%M') AS `month`,
+    date_format(rental_date, '%Y') AS year,
+    count(customer_id) AS active_users
+FROM
+    rental;
+```
+
+image::https://user-images.githubusercontent.com/63274055/152329640-7b046f3b-0875-45b3-8610-54250d722853.png[width=600]
+
+
 === Active users in the previous month.
+
+`*_Answer:_*`
+
+```sql
+WITH last_month_act_users AS (
+    SELECT
+        date_format(rental_date, '%M') AS `month`,
+        date_format(rental_date, '%Y') AS `year`,
+        count(customer_id) AS active_users
+    FROM
+        rental
+    GROUP BY
+        `month`,
+        `year`
+)
+SELECT
+    *,
+    lag (active_users) over () AS last_month_act_users
+FROM
+    last_month_act_users;
+```
+
+image::https://user-images.githubusercontent.com/63274055/152332041-a27db214-52c1-41fa-9e40-90b7d6725ee5.png[width=600]
+
+
 === Percentage change in the number of active customers.
 === Retained customers every month.
 
