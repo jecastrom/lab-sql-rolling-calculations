@@ -108,6 +108,41 @@ image::https://user-images.githubusercontent.com/63274055/152332041-a27db214-52c
 
 
 === Percentage change in the number of active customers.
+
+`*_Answer:_*`
+
+```sql
+CREATE
+OR REPLACE VIEW user_activity AS WITH monthly_active_users AS (
+    SELECT
+        date_format(rental_date, '%Y') AS `year`,
+        date_format(rental_date, '%M') AS `month`,
+        count(customer_id) AS active_users
+    FROM
+        rental
+    GROUP BY
+        `month`,
+        `year`
+)
+SELECT
+    *,
+    lag (active_users) over () AS last_month_users
+FROM
+    monthly_active_users;
+```
+```sql
+SELECT
+    *,
+    round(
+        (active_users - last_month_users) / last_month_users * 100,
+        2
+    ) AS percentage_change
+FROM
+    user_activity;
+```
+image::https://user-images.githubusercontent.com/63274055/152335310-f3388cd8-5a50-4dcf-86ea-99d9de341400.png[width=600]
+
+
 === Retained customers every month.
 
 ====

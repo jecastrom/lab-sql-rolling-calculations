@@ -1,16 +1,8 @@
-WITH last_month_act_users AS (
-    SELECT
-        date_format(rental_date, '%M') AS `month`,
-        date_format(rental_date, '%Y') AS `year`,
-        count(customer_id) AS active_users
-    FROM
-        rental
-    GROUP BY
-        `month`,
-        `year`
-)
 SELECT
     *,
-    lag (active_users) over () AS last_month_act_users
+    round(
+        (active_users - last_month_users) / last_month_users * 100,
+        2
+    ) AS percentage_change
 FROM
-    last_month_act_users;
+    user_activity;
