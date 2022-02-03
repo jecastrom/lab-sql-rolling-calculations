@@ -1,4 +1,4 @@
-= Lab xxxx
+= Lab SQL Rolling calculations
 :stylesheet: boot-darkly.css
 :linkcss: boot-darkly.css
 :image-url-ironhack: https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png
@@ -208,7 +208,7 @@ image::https://user-images.githubusercontent.com/63274055/152341209-7c6175ca-a9e
 
 
 
-xref:Lab-xxxx[Top Section]
+xref:Lab-SQL-Rolling-calculations[Top Section]
 
 
 
