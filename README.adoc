@@ -65,7 +65,7 @@ toc::[]
 
 == Instructions
 
-=== 1. Get number of monthly active customers.
+=== Get number of monthly active customers.
 === Active users in the previous month.
 === Percentage change in the number of active customers.
 === Retained customers every month.
